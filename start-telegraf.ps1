@@ -1,5 +1,1 @@
-$OriginalDir = pwd
-$Filename = "prometheus.conf"
-$PathToConf = $OriginalDir + $Filename
-cd "C:\Program Files\InfluxData\telegraf"
-./telegraf --config $PathToConf
+C:\Program` Files\InfluxData\telegraf\telegraf.exe --config prometheus.conf
