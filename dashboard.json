@@ -76,7 +76,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "celsius"
         },
         "overrides": []
       },
@@ -172,7 +173,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "masslb"
         },
         "overrides": [
           {
@@ -281,9 +283,56 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "pressurepsi"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "fill"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#8383dfb0",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "tank"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#d803f5",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "pneumatics"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#46f203",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 9,
@@ -313,10 +362,9 @@
           "filter": {
             "fields": [
               "time",
-              "pt1",
-              "pt2",
-              "pt3",
-              "pt4"
+              "fill",
+              "pneumatics",
+              "tank"
             ]
           },
           "queryType": "measurements",
@@ -345,7 +393,8 @@
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "pressurepsi"
         },
         "overrides": []
       },
@@ -379,7 +428,12 @@
             "uid": "grafana"
           },
           "filter": {
-            "fields": []
+            "fields": [
+              "time",
+              "fill",
+              "pneumatics",
+              "tank"
+            ]
           },
           "queryType": "measurements",
           "refId": "A"
@@ -397,13 +451,13 @@
     "list": []
   },
   "time": {
-    "from": "now-2m",
+    "from": "now-20s",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Prometheus Ground Systems GUI",
   "uid": "-IxVArQnz",
-  "version": 7,
+  "version": 13,
   "weekStart": ""
 }

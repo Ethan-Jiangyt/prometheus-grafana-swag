@@ -5,12 +5,12 @@ import time
 
 # CONSTANTS
 # the port the arduino is attached to (i.e. COM3 on windows and '/dev/ttyUSB0' on macs)
-PORT = 'COM4'
-BAUDRATE = 9600
+PORT = 'COM3'
+BAUDRATE = 115200
 
 # grafana labels
 measurement = 'sensorvals'
-field_keys = ["pt1", "pt2", "pt3", "pt4", "tc1", "tc2", "tc3", "tc4", "lc"]
+field_keys = ["pt1", "tank", "pneumatics", "fill", "tc1", "tc2", "tc3", "tc4", "lc"]
 
 # not sure if we're getting time sent from arduino but i'll put this here just in case :)
 def getTime():

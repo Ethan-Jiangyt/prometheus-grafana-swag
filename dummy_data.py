@@ -32,5 +32,6 @@ while True:
     data = measurement + ' ' + fields + ' ' + str(timestamp)
     UDPClientSocket.sendto(data.encode(), serverAddressPort)
 
+
     # to simulate arduino delay
     time.sleep(0.0001)
