@@ -19,7 +19,8 @@ def getTime():
 # Initialize the import stuff
 start_time = str(getTime())
 logfile = 'logs/data' + start_time + '.csv'
-
+with open(logfile, 'w+', newline='') as f:
+    f.write('time,' + ','.join(field_keys))
 UDPClientSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 serverAddressPort = ('127.0.0.1', 4000)
 
@@ -49,13 +50,13 @@ while True:
     fields = fields.strip(',')
     # create influx string
     influx_string = measurement + ' ' + fields + ' ' + timestamp
-    print(influx_string)
+    # print(influx_string)
     UDPClientSocket.sendto(influx_string.encode(), serverAddressPort)
 
     # save data
     try:
         with open(logfile, 'a') as f:
-            f.write(influx_string + '\n')
+            f.write(timestamp + ','.join(data) + '\n')
     except:
         print('ayo some weird stuff just happened with the data logging')
         continue
